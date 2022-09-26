@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OrdenesController;
+use App\Http\Controllers\PaginaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/contacto', function () {
+    return view('welcome');
+});
+
+Route::get('/contacto/{codigo?}', [PaginaController::class,'contacto']);
+
+Route::get('/orden', [OrdenesController::class, 'index']);
+Route::get('/orden/{id}', [OrdenesController::class, 'show']);
+
+//Route::resource('orden', OrdenesController::class);
